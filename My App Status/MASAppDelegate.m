@@ -9,7 +9,7 @@
 #import "MASAppDelegate.h"
 #import "MASMasterViewController.h"
 #import "MASDetailViewController.h"
-#import "MASServerController.h"
+#import "MASHTTPClient.h"
 
 @implementation MASAppDelegate
 
@@ -18,6 +18,8 @@
 @synthesize splitViewController  = _splitViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [[UINavigationBar appearance] setTintColor:[UIColor darkGrayColor]];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Override point for customization after application launch.
@@ -29,7 +31,7 @@
         MASMasterViewController *masterViewController       = [[MASMasterViewController alloc] initWithNibName:@"MASMasterViewController" bundle:nil];
         UINavigationController  *masterNavigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
 
-        MASDetailViewController *detailViewController       = [[MASDetailViewController alloc] initWithNibName:@"MASDetailViewController_iPad" bundle:nil];
+        MASDetailViewController *detailViewController       = [[MASDetailViewController alloc] initWithNibName:@"MASDetailViewController" bundle:nil];
         UINavigationController  *detailNavigationController = [[UINavigationController alloc] initWithRootViewController:detailViewController];
 
         masterViewController.detailViewController = detailViewController;

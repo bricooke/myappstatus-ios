@@ -9,7 +9,7 @@
 #import "MASMasterViewController.h"
 #import "MASDetailViewController.h"
 #import "MBProgressHUD.h"
-#import "MASServerController.h"
+#import "MASHTTPClient.h"
 #import "MASLoginViewController.h"
 #import "MASAppCell.h"
 
@@ -46,13 +46,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self downloadAppsFromServer];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
 }
 
 
 - (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
+}
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if ([self.apps count] == 0) {
+        [self downloadAppsFromServer];
+    }
 }
 
 
@@ -64,12 +74,17 @@
     }
 }
 
+#pragma mark - actions
+- (void) refresh:(id)sender {
+    [self downloadAppsFromServer];
+}
+
 
 #pragma mark - helpers
 - (void)downloadAppsFromServer {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
-    [[MASServerController sharedInstance] loadAppsWithCompletionBlock:^(kMASLoadAppsResponseCodes response, NSArray * appInfo) {
+    [[MASHTTPClient sharedInstance] loadAppsWithCompletionBlock:^(kMASLoadResponseCodes response, NSArray * appInfo) {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          switch (response) {
              case kMASLoadAppsResponseSuccess:
@@ -106,6 +121,7 @@
     return 88;
 }
 
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -121,24 +137,24 @@
     MASAppCell *cell = [MASAppCell cellForTableView:tableView];
 
     [cell setAppInfo:[self.apps objectAtIndex:indexPath.row]];
-    
+
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-// NSDate *object = [_objects objectAtIndex:indexPath.row];
-//
-// if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-// if (!self.detailViewController) {
-// self.detailViewController = [[MASDetailViewController alloc] initWithNibName:@"MASDetailViewController_iPhone" bundle:nil];
-// }
-//
-// self.detailViewController.detailItem = object;
-// [self.navigationController pushViewController:self.detailViewController animated:YES];
-// } else {
-// self.detailViewController.detailItem = object;
-// }
+    NSDictionary *appInfo = [self.apps objectAtIndex:indexPath.row];
+
+
+    if (!self.detailViewController) {
+        self.detailViewController = [[MASDetailViewController alloc] init];
+    }
+
+    self.detailViewController.appInfo = [appInfo objectForKey:@"app_info"];
+
+    if (IS_IPHONE) {
+        [self.navigationController pushViewController:self.detailViewController animated:YES];
+    }
 }
 
 

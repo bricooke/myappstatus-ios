@@ -16,16 +16,18 @@ typedef enum {
     kMASLoadAppsResponseAuthenticationFailed,
     kMASLoadAppsResponseFailed,
     kMASLoadAppsResponseSuccess
-} kMASLoadAppsResponseCodes;
+} kMASLoadResponseCodes;
 
 typedef void(^MASServerLoginCB)(BOOL success);
-typedef void(^MASServerLoadAppsCB)(kMASLoadAppsResponseCodes response, NSArray *appInfo);
+typedef void(^MASServerLoadAppsCB)(kMASLoadResponseCodes response, NSArray *appInfo);
+typedef void(^MASServerLoadStatusEntriesCB)(kMASLoadResponseCodes response, NSArray *statusEntries);
 
-@interface MASServerController : AFHTTPClient
+@interface MASHTTPClient : AFHTTPClient
 
-+ (MASServerController *)sharedInstance;
++ (MASHTTPClient *)sharedInstance;
 
 - (void) loginWithEmail:(NSString *)anEmail andPassword:(NSString *)aPassword withCompletionBlock:(MASServerLoginCB)completionBlock;
 - (void) loadAppsWithCompletionBlock:(MASServerLoadAppsCB)completionBlock;
+- (void) loadStatusesForAppId:(NSUInteger)appId withCompletionBlock:(MASServerLoadStatusEntriesCB)completionBlock;
 
 @end

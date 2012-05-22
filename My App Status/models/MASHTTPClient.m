@@ -6,21 +6,21 @@
 // Copyright (c) 2012 roobasoft, LLC. All rights reserved.
 //
 
-#import "MASServerController.h"
+#import "MASHTTPClient.h"
 
 NSString *const kMASDidLoginNotification = @"kMASDidLoginNotification";
 static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
 
 
-@implementation MASServerController
+@implementation MASHTTPClient
 
-+ (MASServerController *)sharedInstance {
-    static MASServerController *secrets = nil;
++ (MASHTTPClient *)sharedInstance {
+    static MASHTTPClient *secrets = nil;
     static dispatch_once_t      onceToken;
 
     dispatch_once(
         &onceToken, ^{
-            secrets = [[MASServerController alloc] initWithBaseURL:[NSURL URLWithString:kMASAPIBaseURLString]];
+            secrets = [[MASHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:kMASAPIBaseURLString]];
         }
         );
 
@@ -39,6 +39,11 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
     [self setDefaultHeader:@"Accept" value:@"application/json"];
 
     return self;
+}
+
+
+- (NSDictionary *)authTokenDict {
+    return [NSDictionary dictionaryWithObject:MAS_SETTINGS.authToken forKey:@"auth_token"];
 }
 
 
@@ -62,7 +67,7 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
         return;
     }
     
-    [self getPath:@"apps" parameters:[NSDictionary dictionaryWithObject:MAS_SETTINGS.authToken forKey:@"auth_token"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self getPath:@"apps" parameters:[self authTokenDict] success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completionBlock(kMASLoadAppsResponseSuccess, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (error && [[operation responseString] rangeOfString:@"Invalid authentication token"].location != NSNotFound) {
@@ -70,6 +75,19 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
         } else {
             completionBlock(kMASLoadAppsResponseFailed, nil);
         }
+    }];
+}
+
+
+- (void) loadStatusesForAppId:(NSUInteger)appId withCompletionBlock:(MASServerLoadStatusEntriesCB)completionBlock {
+    [self getPath:[NSString stringWithFormat:@"apps/%d", appId] parameters:[self authTokenDict] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completionBlock(kMASLoadAppsResponseSuccess, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error && [[operation responseString] rangeOfString:@"Invalid authentication token"].location != NSNotFound) {
+            completionBlock(kMASLoadAppsResponseAuthenticationFailed, nil);
+        } else {
+            completionBlock(kMASLoadAppsResponseFailed, nil);
+        }        
     }];
 }
 

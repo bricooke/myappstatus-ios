@@ -51,7 +51,7 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return interfaceOrientation == UIInterfaceOrientationPortrait;
+    return IS_IPAD || interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
 }
 
 #pragma mark - helpers
@@ -61,6 +61,9 @@
 
 #pragma mark - actions
 - (IBAction)login:(id)sender {
+    [self.emailField resignFirstResponder];
+    [self.passwordField resignFirstResponder];
+    
     if ([self.emailField.text length] == 0 || [self.passwordField.text length] == 0) {
         [self showFailWhale];
         return;
@@ -68,7 +71,7 @@
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
-    [[MASServerController sharedInstance] loginWithEmail:self.emailField.text andPassword:self.passwordField.text withCompletionBlock:^(BOOL success) {
+    [[MASHTTPClient sharedInstance] loginWithEmail:self.emailField.text andPassword:self.passwordField.text withCompletionBlock:^(BOOL success) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         if (success) {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D63313E0156C29B40001464C /* MASStatusEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D63313DF156C29B40001464C /* MASStatusEntryCell.m */; };
+		D63313E2156C29C30001464C /* MASStatusEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63313E1156C29C30001464C /* MASStatusEntryCell.xib */; };
 		D641960F156BEFE6009D6F87 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D641960E156BEFE6009D6F87 /* UIKit.framework */; };
 		D6419611156BEFE6009D6F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6419610156BEFE6009D6F87 /* Foundation.framework */; };
 		D6419613156BEFE6009D6F87 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6419612156BEFE6009D6F87 /* CoreGraphics.framework */; };
@@ -17,17 +19,17 @@
 		D6419645156BF233009D6F87 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D6419643156BF233009D6F87 /* MBProgressHUD.m */; };
 		D6419646156BF233009D6F87 /* MBProgressHUD.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = D6419644156BF233009D6F87 /* MBProgressHUD.xcworkspace */; };
 		D641964A156BF27D009D6F87 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D6419649156BF27D009D6F87 /* SFHFKeychainUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D65739AD156C24AF0087D8AD /* UIColor_MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = D65739AC156C24AF0087D8AD /* UIColor_MASAdditions.m */; };
 		D686C25A156C0796002678AE /* MASDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D686C257156C0796002678AE /* MASDetailViewController.m */; };
 		D686C25B156C0796002678AE /* MASMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D686C259156C0796002678AE /* MASMasterViewController.m */; };
-		D686C25F156C07B8002678AE /* MASDetailViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C25C156C07B8002678AE /* MASDetailViewController_iPad.xib */; };
-		D686C260156C07B8002678AE /* MASDetailViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C25D156C07B8002678AE /* MASDetailViewController_iPhone.xib */; };
+		D686C260156C07B8002678AE /* MASDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C25D156C07B8002678AE /* MASDetailViewController.xib */; };
 		D686C261156C07B8002678AE /* MASMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C25E156C07B8002678AE /* MASMasterViewController.xib */; };
 		D686C265156C07D8002678AE /* MASLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D686C263156C07D8002678AE /* MASLoginViewController.m */; };
 		D686C266156C07D8002678AE /* MASLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C264156C07D8002678AE /* MASLoginViewController.xib */; };
 		D68D3361156C12A9009C9F78 /* MASAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D68D3360156C12A9009C9F78 /* MASAppCell.m */; };
 		D68D3364156C12BD009C9F78 /* MASAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68D3363156C12BD009C9F78 /* MASAppCell.xib */; };
 		D6AC9521156BF35400A2E566 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6AC9520156BF35400A2E566 /* Security.framework */; };
-		D6AC9524156BF5D900A2E566 /* MASServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9523156BF5D900A2E566 /* MASServerController.m */; };
+		D6AC9524156BF5D900A2E566 /* MASHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9523156BF5D900A2E566 /* MASHTTPClient.m */; };
 		D6AC953B156BF60200A2E566 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9527156BF60200A2E566 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6AC953C156BF60200A2E566 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9529156BF60200A2E566 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6AC953D156BF60200A2E566 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC952B156BF60200A2E566 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -38,9 +40,23 @@
 		D6AC9542156BF60200A2E566 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9536156BF60200A2E566 /* AFURLConnectionOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6AC9543156BF60200A2E566 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9538156BF60200A2E566 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6AC9544156BF60200A2E566 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC953A156BF60200A2E566 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D6AFFC95156C2F5E00D45F11 /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AFFC94156C2F5E00D45F11 /* TTTTimeIntervalFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		D6AFFC9A156C3A8E00D45F11 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFC98156C3A8E00D45F11 /* Default.png */; };
+		D6AFFC9B156C3A8E00D45F11 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFC99156C3A8E00D45F11 /* Default@2x.png */; };
+		D6AFFCA0156C3C0400D45F11 /* Default-Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFC9C156C3C0400D45F11 /* Default-Landscape.png */; };
+		D6AFFCA1156C3C0400D45F11 /* Default-Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFC9D156C3C0400D45F11 /* Default-Landscape@2x.png */; };
+		D6AFFCA2156C3C0400D45F11 /* Default-Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFC9E156C3C0400D45F11 /* Default-Portrait.png */; };
+		D6AFFCA3156C3C0400D45F11 /* Default-Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFC9F156C3C0400D45F11 /* Default-Portrait@2x.png */; };
+		D6AFFCA8156C3F6E00D45F11 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFCA4156C3F6E00D45F11 /* Icon-72.png */; };
+		D6AFFCA9156C3F6E00D45F11 /* Icon-144.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFCA5156C3F6E00D45F11 /* Icon-144.png */; };
+		D6AFFCAA156C3F6E00D45F11 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFCA6156C3F6E00D45F11 /* Icon.png */; };
+		D6AFFCAB156C3F6E00D45F11 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D6AFFCA7156C3F6E00D45F11 /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D63313DE156C29B40001464C /* MASStatusEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASStatusEntryCell.h; sourceTree = "<group>"; };
+		D63313DF156C29B40001464C /* MASStatusEntryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASStatusEntryCell.m; sourceTree = "<group>"; };
+		D63313E1156C29C30001464C /* MASStatusEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASStatusEntryCell.xib; sourceTree = "<group>"; };
 		D641960A156BEFE6009D6F87 /* My App Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My App Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D641960E156BEFE6009D6F87 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D6419610156BEFE6009D6F87 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,12 +74,13 @@
 		D6419644156BF233009D6F87 /* MBProgressHUD.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = MBProgressHUD.xcworkspace; sourceTree = "<group>"; };
 		D6419648156BF27D009D6F87 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		D6419649156BF27D009D6F87 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		D65739AB156C24AF0087D8AD /* UIColor_MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor_MASAdditions.h; sourceTree = "<group>"; };
+		D65739AC156C24AF0087D8AD /* UIColor_MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColor_MASAdditions.m; sourceTree = "<group>"; };
 		D686C256156C0796002678AE /* MASDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASDetailViewController.h; sourceTree = "<group>"; };
 		D686C257156C0796002678AE /* MASDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASDetailViewController.m; sourceTree = "<group>"; };
 		D686C258156C0796002678AE /* MASMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASMasterViewController.h; sourceTree = "<group>"; };
 		D686C259156C0796002678AE /* MASMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASMasterViewController.m; sourceTree = "<group>"; };
-		D686C25C156C07B8002678AE /* MASDetailViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASDetailViewController_iPad.xib; sourceTree = "<group>"; };
-		D686C25D156C07B8002678AE /* MASDetailViewController_iPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASDetailViewController_iPhone.xib; sourceTree = "<group>"; };
+		D686C25D156C07B8002678AE /* MASDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASDetailViewController.xib; sourceTree = "<group>"; };
 		D686C25E156C07B8002678AE /* MASMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASMasterViewController.xib; sourceTree = "<group>"; };
 		D686C262156C07D8002678AE /* MASLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLoginViewController.h; sourceTree = "<group>"; };
 		D686C263156C07D8002678AE /* MASLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLoginViewController.m; sourceTree = "<group>"; };
@@ -72,8 +89,8 @@
 		D68D3360156C12A9009C9F78 /* MASAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASAppCell.m; sourceTree = "<group>"; };
 		D68D3363156C12BD009C9F78 /* MASAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASAppCell.xib; sourceTree = "<group>"; };
 		D6AC9520156BF35400A2E566 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		D6AC9522156BF5D900A2E566 /* MASServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASServerController.h; sourceTree = "<group>"; };
-		D6AC9523156BF5D900A2E566 /* MASServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASServerController.m; sourceTree = "<group>"; };
+		D6AC9522156BF5D900A2E566 /* MASHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASHTTPClient.h; sourceTree = "<group>"; };
+		D6AC9523156BF5D900A2E566 /* MASHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASHTTPClient.m; sourceTree = "<group>"; };
 		D6AC9526156BF60200A2E566 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		D6AC9527156BF60200A2E566 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		D6AC9528156BF60200A2E566 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -96,6 +113,18 @@
 		D6AC9539156BF60200A2E566 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		D6AC953A156BF60200A2E566 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		D6AC9545156BF80200A2E566 /* CWLSynthesizeSingleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CWLSynthesizeSingleton.h; sourceTree = "<group>"; };
+		D6AFFC93156C2F5E00D45F11 /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		D6AFFC94156C2F5E00D45F11 /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
+		D6AFFC98156C3A8E00D45F11 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D6AFFC99156C3A8E00D45F11 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D6AFFC9C156C3C0400D45F11 /* Default-Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape.png"; sourceTree = "<group>"; };
+		D6AFFC9D156C3C0400D45F11 /* Default-Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x.png"; sourceTree = "<group>"; };
+		D6AFFC9E156C3C0400D45F11 /* Default-Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait.png"; sourceTree = "<group>"; };
+		D6AFFC9F156C3C0400D45F11 /* Default-Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x.png"; sourceTree = "<group>"; };
+		D6AFFCA4156C3F6E00D45F11 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		D6AFFCA5156C3F6E00D45F11 /* Icon-144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-144.png"; sourceTree = "<group>"; };
+		D6AFFCA6156C3F6E00D45F11 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D6AFFCA7156C3F6E00D45F11 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +173,8 @@
 		D6419614156BEFE6009D6F87 /* My App Status */ = {
 			isa = PBXGroup;
 			children = (
+				D6AFFC97156C3A8E00D45F11 /* assets */,
+				D65739A7156C24350087D8AD /* Extensions */,
 				D6419640156BF205009D6F87 /* 3rdParty */,
 				D641963C156BF1B2009D6F87 /* Models */,
 				D686C255156C0747002678AE /* View Controllers */,
@@ -170,8 +201,8 @@
 			children = (
 				D641963D156BF1D2009D6F87 /* MASSettings.h */,
 				D641963E156BF1D2009D6F87 /* MASSettings.m */,
-				D6AC9522156BF5D900A2E566 /* MASServerController.h */,
-				D6AC9523156BF5D900A2E566 /* MASServerController.m */,
+				D6AC9522156BF5D900A2E566 /* MASHTTPClient.h */,
+				D6AC9523156BF5D900A2E566 /* MASHTTPClient.m */,
 			);
 			name = Models;
 			path = models;
@@ -184,6 +215,7 @@
 				D6AC9525156BF60200A2E566 /* AFNetworking */,
 				D6419647156BF27D009D6F87 /* SFHFKeychain */,
 				D6419641156BF233009D6F87 /* MBProgressHUD */,
+				D6AFFC92156C2F5E00D45F11 /* TTTTimeIntervalFormatter */,
 			);
 			path = 3rdParty;
 			sourceTree = "<group>";
@@ -207,13 +239,22 @@
 			path = SFHFKeychain;
 			sourceTree = "<group>";
 		};
+		D65739A7156C24350087D8AD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D65739AB156C24AF0087D8AD /* UIColor_MASAdditions.h */,
+				D65739AC156C24AF0087D8AD /* UIColor_MASAdditions.m */,
+			);
+			name = Extensions;
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		D686C255156C0747002678AE /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D686C256156C0796002678AE /* MASDetailViewController.h */,
 				D686C257156C0796002678AE /* MASDetailViewController.m */,
-				D686C25C156C07B8002678AE /* MASDetailViewController_iPad.xib */,
-				D686C25D156C07B8002678AE /* MASDetailViewController_iPhone.xib */,
+				D686C25D156C07B8002678AE /* MASDetailViewController.xib */,
 				D686C262156C07D8002678AE /* MASLoginViewController.h */,
 				D686C263156C07D8002678AE /* MASLoginViewController.m */,
 				D686C264156C07D8002678AE /* MASLoginViewController.xib */,
@@ -223,6 +264,9 @@
 				D68D335F156C12A9009C9F78 /* MASAppCell.h */,
 				D68D3360156C12A9009C9F78 /* MASAppCell.m */,
 				D68D3363156C12BD009C9F78 /* MASAppCell.xib */,
+				D63313DE156C29B40001464C /* MASStatusEntryCell.h */,
+				D63313DF156C29B40001464C /* MASStatusEntryCell.m */,
+				D63313E1156C29C30001464C /* MASStatusEntryCell.xib */,
 			);
 			name = "View Controllers";
 			path = viewcontrollers;
@@ -254,6 +298,32 @@
 				D6AC953A156BF60200A2E566 /* UIImageView+AFNetworking.m */,
 			);
 			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		D6AFFC92156C2F5E00D45F11 /* TTTTimeIntervalFormatter */ = {
+			isa = PBXGroup;
+			children = (
+				D6AFFC93156C2F5E00D45F11 /* TTTTimeIntervalFormatter.h */,
+				D6AFFC94156C2F5E00D45F11 /* TTTTimeIntervalFormatter.m */,
+			);
+			path = TTTTimeIntervalFormatter;
+			sourceTree = "<group>";
+		};
+		D6AFFC97156C3A8E00D45F11 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				D6AFFCA4156C3F6E00D45F11 /* Icon-72.png */,
+				D6AFFCA5156C3F6E00D45F11 /* Icon-144.png */,
+				D6AFFCA6156C3F6E00D45F11 /* Icon.png */,
+				D6AFFCA7156C3F6E00D45F11 /* Icon@2x.png */,
+				D6AFFC9C156C3C0400D45F11 /* Default-Landscape.png */,
+				D6AFFC9D156C3C0400D45F11 /* Default-Landscape@2x.png */,
+				D6AFFC9E156C3C0400D45F11 /* Default-Portrait.png */,
+				D6AFFC9F156C3C0400D45F11 /* Default-Portrait@2x.png */,
+				D6AFFC98156C3A8E00D45F11 /* Default.png */,
+				D6AFFC99156C3A8E00D45F11 /* Default@2x.png */,
+			);
+			path = assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,11 +380,21 @@
 			files = (
 				D6419619156BEFE6009D6F87 /* InfoPlist.strings in Resources */,
 				D6419646156BF233009D6F87 /* MBProgressHUD.xcworkspace in Resources */,
-				D686C25F156C07B8002678AE /* MASDetailViewController_iPad.xib in Resources */,
-				D686C260156C07B8002678AE /* MASDetailViewController_iPhone.xib in Resources */,
+				D686C260156C07B8002678AE /* MASDetailViewController.xib in Resources */,
 				D686C261156C07B8002678AE /* MASMasterViewController.xib in Resources */,
 				D686C266156C07D8002678AE /* MASLoginViewController.xib in Resources */,
 				D68D3364156C12BD009C9F78 /* MASAppCell.xib in Resources */,
+				D63313E2156C29C30001464C /* MASStatusEntryCell.xib in Resources */,
+				D6AFFC9A156C3A8E00D45F11 /* Default.png in Resources */,
+				D6AFFC9B156C3A8E00D45F11 /* Default@2x.png in Resources */,
+				D6AFFCA0156C3C0400D45F11 /* Default-Landscape.png in Resources */,
+				D6AFFCA1156C3C0400D45F11 /* Default-Landscape@2x.png in Resources */,
+				D6AFFCA2156C3C0400D45F11 /* Default-Portrait.png in Resources */,
+				D6AFFCA3156C3C0400D45F11 /* Default-Portrait@2x.png in Resources */,
+				D6AFFCA8156C3F6E00D45F11 /* Icon-72.png in Resources */,
+				D6AFFCA9156C3F6E00D45F11 /* Icon-144.png in Resources */,
+				D6AFFCAA156C3F6E00D45F11 /* Icon.png in Resources */,
+				D6AFFCAB156C3F6E00D45F11 /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +410,7 @@
 				D641963F156BF1D2009D6F87 /* MASSettings.m in Sources */,
 				D6419645156BF233009D6F87 /* MBProgressHUD.m in Sources */,
 				D641964A156BF27D009D6F87 /* SFHFKeychainUtils.m in Sources */,
-				D6AC9524156BF5D900A2E566 /* MASServerController.m in Sources */,
+				D6AC9524156BF5D900A2E566 /* MASHTTPClient.m in Sources */,
 				D6AC953B156BF60200A2E566 /* AFHTTPClient.m in Sources */,
 				D6AC953C156BF60200A2E566 /* AFHTTPRequestOperation.m in Sources */,
 				D6AC953D156BF60200A2E566 /* AFImageRequestOperation.m in Sources */,
@@ -345,6 +425,9 @@
 				D686C25B156C0796002678AE /* MASMasterViewController.m in Sources */,
 				D686C265156C07D8002678AE /* MASLoginViewController.m in Sources */,
 				D68D3361156C12A9009C9F78 /* MASAppCell.m in Sources */,
+				D65739AD156C24AF0087D8AD /* UIColor_MASAdditions.m in Sources */,
+				D63313E0156C29B40001464C /* MASStatusEntryCell.m in Sources */,
+				D6AFFC95156C2F5E00D45F11 /* TTTTimeIntervalFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

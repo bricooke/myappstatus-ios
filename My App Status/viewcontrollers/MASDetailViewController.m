@@ -7,25 +7,31 @@
 //
 
 #import "MASDetailViewController.h"
+#import "MASStatusEntryCell.h"
 
-@interface MASDetailViewController ()
+@interface MASDetailViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-- (void)configureView;
+@property (strong, nonatomic) NSArray             *statusEntries;
+@property (weak, nonatomic) IBOutlet UITableView  *tableView;
 @end
 
 @implementation MASDetailViewController
-
-@synthesize detailItem              = _detailItem;
-@synthesize detailDescriptionLabel  = _detailDescriptionLabel;
+@synthesize tableView               = _tableView;
+@synthesize statusEntries           = _statusEntries;
+@synthesize appInfo                 = _appInfo;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-
-        // Update the view.
+- (void)setAppInfo:(NSDictionary *)newAppInfo {
+    if (_appInfo != newAppInfo) {
+        _appInfo = newAppInfo;
+        self.statusEntries = nil;
+        
+        self.title = [newAppInfo objectForKey:@"name"];
+        
+        [self.tableView reloadData];
+        
         [self configureView];
     }
 
@@ -36,25 +42,39 @@
 
 
 - (void)configureView {
-    // Update the user interface for the detail item.
+    // make sure we can show a spinner.
+    if (self.view == nil) {
+        return;
+    }
+    
+    if (self.appInfo) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        [[MASHTTPClient sharedInstance] loadStatusesForAppId:[[self.appInfo objectForKey:@"id"] integerValue] withCompletionBlock:^(kMASLoadResponseCodes response, NSArray * statusEntries) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+
+            if (response == kMASLoadAppsResponseSuccess) {
+             self.statusEntries = statusEntries;
+
+             [self.tableView reloadData];
+            }
+         }
+        ];
     }
 }
 
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
     [self configureView];
 }
 
 
 - (void)viewDidUnload {
+    [self setTableView:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    self.detailDescriptionLabel = nil;
 }
 
 
@@ -67,8 +87,8 @@
 }
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+- (id)init {
+    self = [super initWithNibName:nil bundle:nil];
 
     if (self) {
         self.title = NSLocalizedString(@"", @"");
@@ -82,6 +102,25 @@
 - (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
     return NO;
 }
+
+
+#pragma mark - tableview datasource & delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.statusEntries count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MASStatusEntryCell *cell = [MASStatusEntryCell cellForTableView:tableView];
+    [cell setStatusEntry:[self.statusEntries objectAtIndex:indexPath.row]];
+    return cell;
+}
+
 
 
 @end

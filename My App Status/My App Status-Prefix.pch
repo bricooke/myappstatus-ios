@@ -13,7 +13,7 @@
     #import <Foundation/Foundation.h>
 #import "MASSettings.h"
 #import "MBProgressHUD.h"
-#import "MASServerController.h"
+#import "MASHTTPClient.h"
 #endif
 
 #define IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
