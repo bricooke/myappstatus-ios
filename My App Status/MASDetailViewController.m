@@ -1,9 +1,9 @@
 //
-//  MASDetailViewController.m
-//  My App Status
+// MASDetailViewController.m
+// My App Status
 //
-//  Created by Brian Cooke on 5/22/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+// Created by Brian Cooke on 5/22/12.
+// Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "MASDetailViewController.h"
@@ -15,28 +15,27 @@
 
 @implementation MASDetailViewController
 
-@synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
+@synthesize detailItem              = _detailItem;
+@synthesize detailDescriptionLabel  = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem
-{
+- (void)setDetailItem:(id)newDetailItem {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
 
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
-    }        
+    }
 }
 
-- (void)configureView
-{
+
+- (void)configureView {
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
@@ -44,52 +43,45 @@
     }
 }
 
-- (void)viewDidLoad
-{
+
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
 }
 
-- (void)viewDidUnload
-{
+
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     self.detailDescriptionLabel = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    if (IS_IPHONE) {
+        return interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown;
     } else {
         return YES;
     }
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+
     if (self) {
-        self.title = NSLocalizedString(@"Detail", @"Detail");
+        self.title = NSLocalizedString(@"", @"");
     }
+
     return self;
 }
-							
+
+
 #pragma mark - Split view
-
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
-{
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
-    self.masterPopoverController = popoverController;
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
 }
 
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.masterPopoverController = nil;
-}
 
 @end

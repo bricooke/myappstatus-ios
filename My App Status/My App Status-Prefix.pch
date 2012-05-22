@@ -11,4 +11,8 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+#import "MASSettings.h"
 #endif
+
+#define IS_IPHONE ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+#define IS_IPAD (!([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone))
