@@ -8,7 +8,7 @@
 
 #import "MASServerController.h"
 
-
+NSString *const kMASDidLoginNotification = @"kMASDidLoginNotification";
 static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
 
 
@@ -48,11 +48,29 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
     [self getPath:@"auth_tokens" parameters:nil success:^(AFHTTPRequestOperation * operation, id responseObject) {
          [self clearAuthorizationHeader];
          MAS_SETTINGS.authToken = [responseObject objectForKey:@"token"];
+        completionBlock(YES);
      }
           failure:^(AFHTTPRequestOperation * operation, NSError * error) {
          completionBlock (NO);
      }
     ];
+}
+
+- (void) loadAppsWithCompletionBlock:(MASServerLoadAppsCB)completionBlock {
+    if (MAS_SETTINGS.authToken == nil) {
+        completionBlock(kMASLoadAppsResponseAuthenticationFailed, nil);
+        return;
+    }
+    
+    [self getPath:@"apps" parameters:[NSDictionary dictionaryWithObject:MAS_SETTINGS.authToken forKey:@"auth_token"] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        completionBlock(kMASLoadAppsResponseSuccess, responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        if (error && [[operation responseString] rangeOfString:@"Invalid authentication token"].location != NSNotFound) {
+            completionBlock(kMASLoadAppsResponseAuthenticationFailed, nil);
+        } else {
+            completionBlock(kMASLoadAppsResponseFailed, nil);
+        }
+    }];
 }
 
 @end

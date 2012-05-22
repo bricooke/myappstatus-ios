@@ -3,7 +3,7 @@
 // My App Status
 //
 // Created by Brian Cooke on 5/22/12.
-// Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+// Copyright (c) 2012 roobasoft, LLC. All rights reserved.
 //
 
 #import "MASAppDelegate.h"
@@ -19,7 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    
     // Override point for customization after application launch.
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         MASMasterViewController *masterViewController = [[MASMasterViewController alloc] initWithNibName:@"MASMasterViewController" bundle:nil];
