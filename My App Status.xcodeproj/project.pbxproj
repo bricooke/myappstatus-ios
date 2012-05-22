@@ -24,6 +24,8 @@
 		D686C261156C07B8002678AE /* MASMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C25E156C07B8002678AE /* MASMasterViewController.xib */; };
 		D686C265156C07D8002678AE /* MASLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D686C263156C07D8002678AE /* MASLoginViewController.m */; };
 		D686C266156C07D8002678AE /* MASLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D686C264156C07D8002678AE /* MASLoginViewController.xib */; };
+		D68D3361156C12A9009C9F78 /* MASAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D68D3360156C12A9009C9F78 /* MASAppCell.m */; };
+		D68D3364156C12BD009C9F78 /* MASAppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D68D3363156C12BD009C9F78 /* MASAppCell.xib */; };
 		D6AC9521156BF35400A2E566 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6AC9520156BF35400A2E566 /* Security.framework */; };
 		D6AC9524156BF5D900A2E566 /* MASServerController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9523156BF5D900A2E566 /* MASServerController.m */; };
 		D6AC953B156BF60200A2E566 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = D6AC9527156BF60200A2E566 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -66,6 +68,9 @@
 		D686C262156C07D8002678AE /* MASLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLoginViewController.h; sourceTree = "<group>"; };
 		D686C263156C07D8002678AE /* MASLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLoginViewController.m; sourceTree = "<group>"; };
 		D686C264156C07D8002678AE /* MASLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASLoginViewController.xib; sourceTree = "<group>"; };
+		D68D335F156C12A9009C9F78 /* MASAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASAppCell.h; sourceTree = "<group>"; };
+		D68D3360156C12A9009C9F78 /* MASAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASAppCell.m; sourceTree = "<group>"; };
+		D68D3363156C12BD009C9F78 /* MASAppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MASAppCell.xib; sourceTree = "<group>"; };
 		D6AC9520156BF35400A2E566 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D6AC9522156BF5D900A2E566 /* MASServerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASServerController.h; sourceTree = "<group>"; };
 		D6AC9523156BF5D900A2E566 /* MASServerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASServerController.m; sourceTree = "<group>"; };
@@ -215,6 +220,9 @@
 				D686C258156C0796002678AE /* MASMasterViewController.h */,
 				D686C259156C0796002678AE /* MASMasterViewController.m */,
 				D686C25E156C07B8002678AE /* MASMasterViewController.xib */,
+				D68D335F156C12A9009C9F78 /* MASAppCell.h */,
+				D68D3360156C12A9009C9F78 /* MASAppCell.m */,
+				D68D3363156C12BD009C9F78 /* MASAppCell.xib */,
 			);
 			name = "View Controllers";
 			path = viewcontrollers;
@@ -306,6 +314,7 @@
 				D686C260156C07B8002678AE /* MASDetailViewController_iPhone.xib in Resources */,
 				D686C261156C07B8002678AE /* MASMasterViewController.xib in Resources */,
 				D686C266156C07D8002678AE /* MASLoginViewController.xib in Resources */,
+				D68D3364156C12BD009C9F78 /* MASAppCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +344,7 @@
 				D686C25A156C0796002678AE /* MASDetailViewController.m in Sources */,
 				D686C25B156C0796002678AE /* MASMasterViewController.m in Sources */,
 				D686C265156C07D8002678AE /* MASLoginViewController.m in Sources */,
+				D68D3361156C12A9009C9F78 /* MASAppCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

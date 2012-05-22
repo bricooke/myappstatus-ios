@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 #import "MASServerController.h"
 #import "MASLoginViewController.h"
+#import "MASAppCell.h"
 
 @interface MASMasterViewController ()
 @property (strong, nonatomic) NSArray *apps;
@@ -101,6 +102,10 @@
 
 #pragma mark - Table View
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -113,21 +118,10 @@
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"AppsCell";
+    MASAppCell *cell = [MASAppCell cellForTableView:tableView];
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-    }
-
-
-    NSDictionary *appInfo = [self.apps objectAtIndex:indexPath.row];
-    cell.textLabel.text = [[appInfo objectForKey:@"app_info"] objectForKey:@"name"];
+    [cell setAppInfo:[self.apps objectAtIndex:indexPath.row]];
+    
     return cell;
 }
 
