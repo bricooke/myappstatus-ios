@@ -85,7 +85,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 
     [[MASHTTPClient sharedInstance] loadAppsWithCompletionBlock:^(kMASLoadResponseCodes response, NSArray * appInfo) {
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
          switch (response) {
              case kMASLoadAppsResponseSuccess:
                  self.apps = appInfo;

@@ -72,7 +72,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     
     [[MASHTTPClient sharedInstance] loginWithEmail:self.emailField.text andPassword:self.passwordField.text withCompletionBlock:^(BOOL success) {
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
         if (success) {
             [[NSNotificationCenter defaultCenter] postNotificationName:kMASDidLoginNotification object:nil];

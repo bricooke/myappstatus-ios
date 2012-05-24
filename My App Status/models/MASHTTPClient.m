@@ -42,11 +42,6 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
 }
 
 
-- (NSDictionary *)authTokenDict {
-    return [NSDictionary dictionaryWithObject:MAS_SETTINGS.authToken forKey:@"auth_token"];
-}
-
-
 - (void)loginWithEmail:(NSString *)anEmail andPassword:(NSString *)aPassword withCompletionBlock:(MASServerLoginCB)completionBlock {
     [self setAuthorizationHeaderWithUsername:anEmail password:aPassword];
 
@@ -67,7 +62,9 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
         return;
     }
     
-    [self getPath:@"apps" parameters:[self authTokenDict] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self setAuthorizationHeaderWithToken:MAS_SETTINGS.authToken];
+    
+    [self getPath:@"apps" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completionBlock(kMASLoadAppsResponseSuccess, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (error && [[operation responseString] rangeOfString:@"Invalid authentication token"].location != NSNotFound) {
@@ -80,7 +77,9 @@ static NSString *const kMASAPIBaseURLString = @"https://myappstat.us/api/";
 
 
 - (void) loadStatusesForAppId:(NSUInteger)appId withCompletionBlock:(MASServerLoadStatusEntriesCB)completionBlock {
-    [self getPath:[NSString stringWithFormat:@"apps/%d", appId] parameters:[self authTokenDict] success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [self setAuthorizationHeaderWithToken:MAS_SETTINGS.authToken];
+    
+    [self getPath:[NSString stringWithFormat:@"apps/%d", appId] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         completionBlock(kMASLoadAppsResponseSuccess, responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (error && [[operation responseString] rangeOfString:@"Invalid authentication token"].location != NSNotFound) {
